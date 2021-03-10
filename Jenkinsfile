@@ -1,9 +1,20 @@
 pipeline {
     agent any
     stages {
-        stage('Stage 1') {
+	
+		stage('Restore packages'){
+			steps {
+				bat "dot net restore NetCoreTest\\NetCoreTest\\NetCoreTest.sln"
+			}
+		}
+		stage('Clean solution'){
+			steps {
+				bat "dot net clean NetCoreTest\\NetCoreTest\\NetCoreTest.sln"
+			}
+		}
+        stage('Build Soltuon') {
             steps {
-                echo 'Hello world'
+                bat "dot net bild NetCoreTest\\NetCoreTest\\NetCoreTest.sln --configuraiton release"
             }
         }
     }
