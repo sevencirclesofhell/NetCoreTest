@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+	stage('Scm checkout') {
+		steps {
+			checkout scm
+		}
+	}
 	stage('Restore packages') {
 		steps {
 			sh "dot net restore NetCoreTest\\NetCoreTest\\NetCoreTest.sln"
