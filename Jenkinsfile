@@ -18,7 +18,7 @@ pipeline {
    	}
         stage('Build Soltuon') {
             steps {
-                sh 'dotnet build NetCoreTest\\NetCoreTest\\NetCoreTest.sln --configuraiton release'
+                sh 'dotnet build NetCoreTest/NetCoreTest/NetCoreTest.sln --configuraiton release'
             }
         }
     }
