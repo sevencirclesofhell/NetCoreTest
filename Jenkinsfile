@@ -8,17 +8,17 @@ pipeline {
 	}
 	stage('Restore packages') {
 		steps {
-			sh "dot net restore NetCoreTest\\NetCoreTest\\NetCoreTest.sln"
+			sh 'dotnet restore NetCoreTest/NetCoreTest/NetCoreTest.sln'
 		}
 	}
 	stage('Clean solution') {
 		steps {
-			sh "dot net clean NetCoreTest\\NetCoreTest\\NetCoreTest.sln"
+			sh 'dotnet clean NetCoreTest/NetCoreTest/NetCoreTest.sln'
     		}
    	}
         stage('Build Soltuon') {
             steps {
-                sh "dot net bild NetCoreTest\\NetCoreTest\\NetCoreTest.sln --configuraiton release"
+                sh 'dotnet build NetCoreTest\\NetCoreTest\\NetCoreTest.sln --configuraiton release'
             }
         }
     }
